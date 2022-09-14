@@ -1,19 +1,15 @@
 # my-Go-projects
-
-    Simple project for GoLand . This is CRUD operation on books table and  presistent data on Postgres. Please make sure you install postgres database on your machine.
+Simple project for GoLand . This is CRUD operation on books table and  presistent data on Postgres. Please make sure you install postgres database on your machine.
 
 ## lib
-    ```
+    
     fiber - for web connection
     gorm - for database connection
 
-    ```
 ## Testing the Endpoints
 
 ## Run go server
-    ```
     make server or go run cmd/main.go
-    ```
 
 ## POST: Add a new Book
 
