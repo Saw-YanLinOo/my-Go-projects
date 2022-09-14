@@ -8,7 +8,7 @@ import (
 type AddBookRequestBody struct {
 	Title       string `json:"title"`
 	Author      string `json:"author"`
-	Description string `json:"description`
+	Description string `json:"description"`
 }
 
 func (h handler) AddBook(c *fiber.Ctx) error {
