@@ -3,30 +3,28 @@ package main
 import (
 	"log"
 
-	"github.com/gofiber/fiber/v2"
+	"github.com/YanYanUcstt/go-fiber-api/pkg/books"
 	"github.com/YanYanUcstt/go-fiber-api/pkg/common/config"
 	"github.com/YanYanUcstt/go-fiber-api/pkg/common/db"
+	"github.com/gofiber/fiber/v2"
 )
 
-func main(){
+func main() {
 
 	// Load Config file
-	c,err := config.LoadConfig()
+	c, err := config.LoadConfig()
 
-	if err != nil{
-		log.Fatalln("Failed at config",err)
+	if err != nil {
+		log.Fatalln("Failed at config", err)
 	}
 	// Create Fiber
 	app := fiber.New()
 
 	// Initialize database
-	db.Init(c.DBUrl)
+	db := db.Init(c.DBUrl)
 
-	app.Get("/",func (ctx *fiber.Ctx) error {
-
-		return ctx.Status(fiber.StatusOK).SendString("Hello Go!!")
-	})
-
+	//register routes
+	books.RegisterRoutes(app, db)
 	app.Listen(c.Port)
 
 }
